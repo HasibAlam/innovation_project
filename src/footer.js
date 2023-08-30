@@ -6,28 +6,63 @@ import MenuItem from '@mui/material/MenuItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Check from '@mui/icons-material/Check';
+import EmailIcon from '@mui/icons-material/Email';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+
+// Create a custom theme
+const theme = createTheme({
+  palette: {
+    background: {
+      default: '#330000', // Reddish-black background color
+    },
+  },
+  typography: {
+    fontFamily: 'Roboto, sans-serif', // Use Roboto font
+  },
+});
 
 export default function DenseMenu() {
   return (
-    
+    <ThemeProvider theme={theme}>
       <MenuList dense>
         <MenuItem>
-          <ListItemText inset>Single</ListItemText>
+          <ListItemIcon>
+            <Check />
+          </ListItemIcon>
+          <ListItemText>
+            Thanks for visiting our page. We would love your feedback!
+          </ListItemText>
         </MenuItem>
         <MenuItem>
-          <ListItemText inset>1.15</ListItemText>
+          <ListItemIcon>
+            <EmailIcon />
+          </ListItemIcon>
+          <ListItemText primary="Team Members:" />
         </MenuItem>
-       
+
+        <MenuItem>
+          <ListItemIcon>
+            <EmailIcon />
+          </ListItemIcon>
+          <ListItemText primary="Md Ahnaf Islam" secondary="103842975@student.swin.edu.au" />
+        </MenuItem>
+
+        <MenuItem>
+          <ListItemIcon>
+            <EmailIcon />
+          </ListItemIcon>
+          <ListItemText primary="Md Hasib Alam" secondary="103810516@student.swin.edu.au" />
+        </MenuItem>
+
+        <MenuItem>
+          <ListItemIcon>
+            <EmailIcon />
+          </ListItemIcon>
+          <ListItemText primary="Levish Boodho" secondary="123456@student.swin.edu.au" />
+        </MenuItem>
+
         <Divider />
-        <MenuItem>
-          <ListItemText>Add space before paragraph</ListItemText>
-        </MenuItem>
-        <MenuItem>
-          <ListItemText>Add space after paragraph</ListItemText>
-        </MenuItem>
-        
-        
       </MenuList>
-   
+    </ThemeProvider>
   );
 }
